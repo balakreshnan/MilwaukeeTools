@@ -1,0 +1,18 @@
+// Create table command
+////////////////////////////////////////////////////////////
+.create table ['opcdata']  (['Random_Int1']:int, ['Random_Boolean']:bool)
+
+
+// Create mapping command
+////////////////////////////////////////////////////////////
+.create table ['opcdata'] ingestion json mapping 'opcdata_mapping' '[{"column":"Random_Int1","path":"$.Random.Int1","datatype":"int"},{"column":"Random_Boolean","path":"$.Random.Boolean","datatype":"bool"}]'
+
+
+
+.create table ['opcdata1']  (['tagname']:string, ['tagvalue']:string)
+
+
+// Create mapping command
+////////////////////////////////////////////////////////////
+.create table ['opcdata1'] ingestion json mapping 'opcdata_mapping1' '[{"column":"tagname","path":"$.tagname","datatype":"string"},{"column":"tagvalue","path":"$.tagvalue","datatype":"string"}]'
+

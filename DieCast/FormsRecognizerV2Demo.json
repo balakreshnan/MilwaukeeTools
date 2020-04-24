@@ -1,0 +1,243 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Analyze_Receipt": {
+                "inputs": {
+                    "body": "@base64ToBinary(variables('form'))",
+                    "headers": {
+                        "Content-type": "@variables('ContentType')"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['FormRecognizerV2']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/prebuilt/receipt/analyze"
+                },
+                "runAfter": {
+                    "Extract_Content-Type_from_request": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "Extract_Content-Type_from_request": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "ContentType",
+                            "type": "String",
+                            "value": "@{triggerBody()?['$multipart'][0]?['headers']?['content-type']}"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_Variable_with_Form_contents": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_Variable_with_Form_contents": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "form",
+                            "type": "String",
+                            "value": "@{triggerMultipartBody(0)['$content']}"
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "guid",
+                            "type": "string",
+                            "value": "@{outputs('Analyze_Receipt')}['headers']?['Operation-Location’]"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Analyze_Receipt": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_2": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "header",
+                            "type": "string",
+                            "value": "@json(variables('guid'))?['headers']?['Operation-Location']"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_variable": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_3": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "anotherOne",
+                            "type": "string",
+                            "value": "@substring(variables('header'), add(indexOf(variables('header'),'analyzeResults'),15))"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_variable_2": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_4": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "result",
+                            "type": "boolean",
+                            "value": false
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_variable_3": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Response": {
+                "inputs": {
+                    "body": "@body('Get_Analyze_Receipt_Result')?['analyzeResult']",
+                    "statusCode": 200
+                },
+                "kind": "Http",
+                "runAfter": {
+                    "Until": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            },
+            "Until": {
+                "actions": {
+                    "Condition": {
+                        "actions": {
+                            "Set_variable": {
+                                "inputs": {
+                                    "name": "result",
+                                    "value": true
+                                },
+                                "runAfter": {},
+                                "type": "SetVariable"
+                            }
+                        },
+                        "else": {
+                            "actions": {
+                                "Delay": {
+                                    "inputs": {
+                                        "interval": {
+                                            "count": 5,
+                                            "unit": "Second"
+                                        }
+                                    },
+                                    "runAfter": {},
+                                    "type": "Wait"
+                                }
+                            }
+                        },
+                        "expression": {
+                            "or": [
+                                {
+                                    "equals": [
+                                        "@body('Get_Analyze_Receipt_Result')?['status']",
+                                        "succeeded"
+                                    ]
+                                },
+                                {
+                                    "equals": [
+                                        "@body('Get_Analyze_Receipt_Result')?['status']",
+                                        "failed"
+                                    ]
+                                }
+                            ]
+                        },
+                        "runAfter": {
+                            "Get_Analyze_Receipt_Result": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "If"
+                    },
+                    "Get_Analyze_Receipt_Result": {
+                        "inputs": {
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['FormRecognizerV2']['connectionId']"
+                                }
+                            },
+                            "method": "get",
+                            "path": "/prebuilt/receipt/analyzeResults/@{encodeURIComponent(variables('anotherOne'))}"
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection"
+                    }
+                },
+                "expression": "@equals(variables('result'), true)",
+                "limit": {
+                    "count": 60,
+                    "timeout": "PT1H"
+                },
+                "runAfter": {
+                    "Initialize_variable_4": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Until"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {}
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "FormRecognizerV2": {
+                    "connectionId": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/jonsdemos/providers/Microsoft.Web/connections/FormRecognizerV2",
+                    "connectionName": "FormRecognizerV2",
+                    "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/jonsdemos/providers/Microsoft.Web/customApis/FormRecognizerV2"
+                }
+            }
+        }
+    }
+}
