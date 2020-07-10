@@ -30,14 +30,14 @@ In your Azure Portal, you will need to create these resources in the same region
 ## Export Data Labelling Tags
 
 In your data labelling project, export the tagged data to an Azure ML Dataset as shown.
-![image](/images/exportAzureMLDataset.png)
+![image](/CognitiveSearchImages/images/exportAzureMLDataset.png)
 
 ## Publish Function App
 Modify "BlobStorageService.cs" to include:
 1. The connection string to your Blob Storage account
 1. The name of your blob container
 
-![image](/images/modifyCode.PNG)
+![image](/CognitiveSearchImages/images/modifyCode.PNG)
 
 Publish the app ([reference doc](https://docs.microsoft.com/en-us/azure/search/cognitive-search-create-custom-skill-example#publish-the-function-to-azure))
 
@@ -51,7 +51,7 @@ Publish the app ([reference doc](https://docs.microsoft.com/en-us/azure/search/c
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Function you published. Under the Functions section, you should see your listed function. Open it and go to the "Code + Test" blade. Select "Get Function Url" and copy the ***default* host key**. You will need this for creating the skillset in Postman.
 
-![image](/images/getFunctionURL.PNG)
+![image](/CognitiveSearchImages/images/getFunctionURL.PNG)
 
 ## Setup Azure Cognitive Search through Postman
 We will be using Postman to create the Knowledge Store. If you don’t have this tool already, you can download it [here](https://www.postman.com/downloads/). When you create a knowledge store, you must issue four HTTP requests:
@@ -81,7 +81,7 @@ Import the collections of requests "MilwaukeeToolsDemo-Postman.postman_collectio
 1. Remove all columns except for "*Content*"
 
 1. Expand the "*Content*" column with the selected fields shown:
-![image](/images/expandColumn.PNG)
+![image](/CognitiveSearchImages/images/expandColumn.PNG)
 
 1. Close the Power Query Editor window and apply changes
 
@@ -98,4 +98,4 @@ Import the collections of requests "MilwaukeeToolsDemo-Postman.postman_collectio
 
 1. Add charts of your choosing the visualize the data
 
-![image](/images/powerbi.PNG)
+![image](/CognitiveSearchImages/images/powerbi.PNG)
