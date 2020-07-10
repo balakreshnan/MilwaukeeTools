@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "66d53ff4-e26b-445b-ac03-bfe109d599d3",
+		"name": "MilwaukeeToolsDemo-Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Index",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{Subscription Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": {{\"your-index-name\"}},\r\n  \"fields\": [\r\n    {\r\n      \"name\": \"image_url\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": false,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"label\",\r\n      \"type\": \"Collection(Edm.ComplexType)\",\r\n      \"analyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": [\r\n        {\r\n          \"name\": \"label\",\r\n          \"type\": \"Edm.String\",\r\n          \"facetable\": false,\r\n          \"filterable\": false,\r\n          \"key\": false,\r\n          \"retrievable\": true,\r\n          \"searchable\": false,\r\n          \"sortable\": false,\r\n          \"analyzer\": null,\r\n          \"indexAnalyzer\": null,\r\n          \"searchAnalyzer\": null,\r\n          \"synonymMaps\": [],\r\n          \"fields\": []\r\n        },\r\n        {\r\n          \"name\": \"topX\",\r\n          \"type\": \"Edm.Double\",\r\n          \"facetable\": false,\r\n          \"filterable\": false,\r\n          \"retrievable\": true,\r\n          \"sortable\": false,\r\n          \"analyzer\": null,\r\n          \"indexAnalyzer\": null,\r\n          \"searchAnalyzer\": null,\r\n          \"synonymMaps\": [],\r\n          \"fields\": []\r\n        },\r\n        {\r\n          \"name\": \"topY\",\r\n          \"type\": \"Edm.Double\",\r\n          \"facetable\": false,\r\n          \"filterable\": false,\r\n          \"retrievable\": false,\r\n          \"sortable\": false,\r\n          \"analyzer\": null,\r\n          \"indexAnalyzer\": null,\r\n          \"searchAnalyzer\": null,\r\n          \"synonymMaps\": [],\r\n          \"fields\": []\r\n        },\r\n        {\r\n          \"name\": \"bottomX\",\r\n          \"type\": \"Edm.Double\",\r\n          \"facetable\": false,\r\n          \"filterable\": false,\r\n          \"retrievable\": true,\r\n          \"sortable\": false,\r\n          \"analyzer\": null,\r\n          \"indexAnalyzer\": null,\r\n          \"searchAnalyzer\": null,\r\n          \"synonymMaps\": [],\r\n          \"fields\": []\r\n        },\r\n        {\r\n          \"name\": \"bottomY\",\r\n          \"type\": \"Edm.Double\",\r\n          \"facetable\": false,\r\n          \"filterable\": false,\r\n          \"retrievable\": true,\r\n          \"sortable\": false,\r\n          \"analyzer\": null,\r\n          \"indexAnalyzer\": null,\r\n          \"searchAnalyzer\": null,\r\n          \"synonymMaps\": [],\r\n          \"fields\": []\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"label_confidence\",\r\n      \"type\": \"Collection(Edm.Double)\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"retrievable\": true,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"headLampCount\",\r\n      \"type\": \"Edm.Int32\",\r\n      \"facetable\": false,\r\n      \"filterable\": true,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"jobCartCount\",\r\n      \"type\": \"Edm.Int32\",\r\n      \"facetable\": false,\r\n      \"filterable\": true,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"scissorLiftCount\",\r\n      \"type\": \"Edm.Int32\",\r\n      \"facetable\": false,\r\n      \"filterable\": true,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"taskLightingCount\",\r\n      \"type\": \"Edm.Int32\",\r\n      \"facetable\": false,\r\n      \"filterable\": true,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"conduitCount\",\r\n      \"type\": \"Edm.Int32\",\r\n      \"facetable\": false,\r\n      \"filterable\": true,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"blobUri\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": false,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"AzureSearch_DocumentKey\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": true,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"metadata_storage_content_type\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": false,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"metadata_storage_size\",\r\n      \"type\": \"Edm.Int64\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"metadata_storage_last_modified\",\r\n      \"type\": \"Edm.DateTimeOffset\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"retrievable\": true,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"metadata_storage_name\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": false,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"metadata_storage_path\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": false,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    },\r\n    {\r\n      \"name\": \"metadata_storage_file_extension\",\r\n      \"type\": \"Edm.String\",\r\n      \"facetable\": false,\r\n      \"filterable\": false,\r\n      \"key\": false,\r\n      \"retrievable\": true,\r\n      \"searchable\": false,\r\n      \"sortable\": false,\r\n      \"analyzer\": null,\r\n      \"indexAnalyzer\": null,\r\n      \"searchAnalyzer\": null,\r\n      \"synonymMaps\": [],\r\n      \"fields\": []\r\n    }\r\n  ],\r\n  \"suggesters\": [],\r\n  \"scoringProfiles\": [],\r\n  \"defaultScoringProfile\": \"\",\r\n  \"corsOptions\": null,\r\n  \"analyzers\": [],\r\n  \"charFilters\": [],\r\n  \"tokenFilters\": [],\r\n  \"tokenizers\": [],\r\n  \"@odata.etag\": \"\\\"0x8D8186349EFF448\\\"\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/indexes/{{your-index-name}}?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"{{your-index-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Data Source",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{Subscription Key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {{Give a name for your data source}},\r\n    \"description\": {{Optional}},\r\n    \"type\": \"azureblob\",\r\n    \"credentials\": {\r\n        \"connectionString\": {{Connection string for your data source}}\r\n    },\r\n    \"container\": {\r\n        \"name\": {{Name of blob container you wish to index}},\r\n        \"query\": {{Path of data in blob container}}\r\n    },\r\n    \"dataChangeDetectionPolicy\": null,   \r\n    \"dataDeletionDetectionPolicy\": null \r\n}"
+				},
+				"url": {
+					"raw": "https://{{service name}}.search.windows.net/datasources?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{service name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Skillset",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{Subscription Key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"name\" : {{your-skill-name}},\r\n  \"skills\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Skills.Custom.WebApiSkill\",\r\n        \"description\": \"Count number of headlamps and carts. Get blob uri of tagged file\",\r\n        \"uri\": {{Function URL}},\r\n        \"batchSize\":1,\r\n        \"context\": \"/document\",\r\n        \"inputs\": [\r\n          {\r\n            \"name\": \"label\",\r\n            \"source\": \"/document/label\"\r\n          },\r\n          {\r\n            \"name\": \"image_url\",\r\n            \"source\": \"/document/image_url\"\r\n          }\r\n        ],\r\n        \"outputs\": [\r\n          {\r\n            \"name\": \"headLampCount\",\r\n            \"targetName\": \"headLampCount\"\r\n          },\r\n          {\r\n            \"name\": \"jobCartCount\",\r\n            \"targetName\": \"jobCartCount\"\r\n          },\r\n          {\r\n            \"name\": \"blobUri\",\r\n            \"targetName\": \"blobUri\"\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"cognitiveServices\": {\r\n    \t\"@odata.type\": \"#Microsoft.Azure.Search.CognitiveServicesByKey\",\r\n    \t\"description\": \"mlops-cognitiveService\",\r\n    \t\"key\": \"dc0e913879d84adfa600e7f66d43db03\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/skillsets/{{your-skill-name}}?api-version=2019-05-06-Preview",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"{{your-skill-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06-Preview"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Indexer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{Subscription Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"@odata.context\": \"https://{{your-search-service-name}}.search.windows.net/$metadata#indexers/$entity\",\r\n  \"@odata.etag\": \"\\\"0x8D818634A50A24C\\\"\",\r\n  \"name\": {{your-indexer-name}},\r\n  \"description\": \"\",\r\n  \"dataSourceName\": {{dataSourceName}},\r\n  \"skillsetName\": {{skillsetName}},\r\n  \"targetIndexName\": {{targetIndexName}},\r\n  \"disabled\": null,\r\n  \"schedule\": null,\r\n  \"parameters\": {\r\n    \"batchSize\": null,\r\n    \"maxFailedItems\": -1,\r\n    \"maxFailedItemsPerBatch\": 0,\r\n    \"base64EncodeKeys\": null,\r\n    \"configuration\": {\r\n      \"dataToExtract\": \"contentAndMetadata\",\r\n      \"parsingMode\": \"jsonLines\"\r\n    }\r\n  },\r\n  \"fieldMappings\": [\r\n    {\r\n      \"sourceFieldName\": \"AzureSearch_DocumentKey\",\r\n      \"targetFieldName\": \"AzureSearch_DocumentKey\",\r\n      \"mappingFunction\": {\r\n        \"name\": \"base64Encode\"\r\n      }\r\n    }\r\n  ],\r\n  \"outputFieldMappings\": [\r\n    {\r\n      \"sourceFieldName\": \"/document/headLampCount\",\r\n      \"targetFieldName\": \"headLampCount\"\r\n    },\r\n    {\r\n      \"sourceFieldName\": \"/document/jobCartCount\",\r\n      \"targetFieldName\": \"jobCartCount\"\r\n    },\r\n    {\r\n      \"sourceFieldName\": \"/document/scissorLiftCount\",\r\n      \"targetFieldName\": \"scissorLiftCount\"\r\n    },\r\n    {\r\n      \"sourceFieldName\": \"/document/taskLightingCount\",\r\n      \"targetFieldName\": \"taskLightingCount\"\r\n    },\r\n    {\r\n      \"sourceFieldName\": \"/document/conduitCount\",\r\n      \"targetFieldName\": \"conduitCount\"\r\n    },\r\n    {\r\n      \"sourceFieldName\": \"/document/blobUri\",\r\n      \"targetFieldName\": \"blobUri\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/indexers/{{your-indexer-name}}?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"{{your-indexer-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
