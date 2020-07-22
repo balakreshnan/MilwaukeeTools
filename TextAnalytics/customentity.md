@@ -8,7 +8,7 @@ So if you’ve not already done so, please first use this tutorial to create the
 In this tutorial, we’ll be using the Custom Entity skill to identify words and phrases in our documentation and use the results to do analysis in Power BI. The specific words we’ll be looking for in the reviews are:
 
 * Intermittent/Intermittently
-* Check
+* Chuck
 * Trigger Interference
 * Dead
 * Low Power
@@ -107,7 +107,7 @@ First, Add the Custom entity skill, add another skill to your skillset using the
                     ]
                 },
                 {
-                    "name": "check",
+                    "name": "chuck",
                     "description": null,
                     "type": null,
                     "subtype": null,
