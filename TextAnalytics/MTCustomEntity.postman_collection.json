@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "03d14263-4ccd-4c0d-918d-653624690ccb",
+		"name": "MTCustomEntity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index - GET",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/indexes/{{your-index-name}}?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"{{your-index-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Index - PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{your-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"@odata.context\": \"https://{{your-search-service-name}}.search.windows.net/$metadata#indexes/$entity\",\r\n    \"@odata.etag\": \"\\\"0x8D82DD22E65C54A\\\"\",\r\n    \"name\": \"{{your-index-name}}\",\r\n    \"defaultScoringProfile\": \"\",\r\n    \"fields\": [\r\n        {\r\n            \"name\": \"CREATEDDATE\",\r\n            \"type\": \"Edm.DateTimeOffset\",\r\n            \"searchable\": false,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": null,\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"ItemSearchName\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"ProductType\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"Reviews\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"Rating\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"AzureSearch_DocumentKey\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": true,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_content_type\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_size\",\r\n            \"type\": \"Edm.Int64\",\r\n            \"searchable\": false,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": null,\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_last_modified\",\r\n            \"type\": \"Edm.DateTimeOffset\",\r\n            \"searchable\": false,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": null,\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_content_md5\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_name\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_path\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"metadata_storage_file_extension\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"locations\",\r\n            \"type\": \"Collection(Edm.String)\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"sentiment\",\r\n            \"type\": \"Collection(Edm.Double)\",\r\n            \"searchable\": false,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": null,\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"language\",\r\n            \"type\": \"Edm.String\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"customentity\",\r\n            \"type\": \"Collection(Edm.String)\",\r\n            \"searchable\": true,\r\n            \"filterable\": true,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": true,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"translated_text\",\r\n            \"type\": \"Collection(Edm.String)\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"en.lucene\",\r\n            \"synonymMaps\": []\r\n        },\r\n        {\r\n            \"name\": \"keyphrases\",\r\n            \"type\": \"Collection(Edm.String)\",\r\n            \"searchable\": true,\r\n            \"filterable\": false,\r\n            \"retrievable\": true,\r\n            \"sortable\": false,\r\n            \"facetable\": false,\r\n            \"key\": false,\r\n            \"indexAnalyzer\": null,\r\n            \"searchAnalyzer\": null,\r\n            \"analyzer\": \"standard.lucene\",\r\n            \"synonymMaps\": []\r\n        }\r\n    ],\r\n    \"scoringProfiles\": [],\r\n    \"corsOptions\": null,\r\n    \"suggesters\": [],\r\n    \"analyzers\": [],\r\n    \"tokenizers\": [],\r\n    \"tokenFilters\": [],\r\n    \"charFilters\": [],\r\n    \"encryptionKey\": null\r\n}"
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/indexes//{{your-index-name}}?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"",
+						"{{your-index-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Skillset - GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{your-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/skillsets/{{your-skillset-name}}?api-version=2019-05-06-Preview",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"{{your-skillset-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06-Preview"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Skillset - PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{your-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"@odata.context\": \"https://{{your-search-service-name}}.search.windows.net/$metadata#skillsets/$entity\",\r\n    \"@odata.etag\": \"\\\"0x8D82DD22F10FC20\\\"\",\r\n    \"name\": \"{{your-skillset-name}}\",\r\n    \"skills\": [\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.SplitSkill\",\r\n            \"name\": \"#1\",\r\n            \"description\": null,\r\n            \"context\": \"/document/Reviews\",\r\n            \"defaultLanguageCode\": \"en\",\r\n            \"textSplitMode\": \"pages\",\r\n            \"maximumPageLength\": 5000,\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"languageCode\",\r\n                    \"source\": \"/document/language\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"textItems\",\r\n                    \"targetName\": \"pages\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.EntityRecognitionSkill\",\r\n            \"name\": \"#2\",\r\n            \"description\": null,\r\n            \"context\": \"/document/Reviews/pages/*\",\r\n            \"categories\": [\r\n                \"Person\",\r\n                \"Quantity\",\r\n                \"Organization\",\r\n                \"URL\",\r\n                \"Email\",\r\n                \"Location\",\r\n                \"DateTime\"\r\n            ],\r\n            \"defaultLanguageCode\": \"en\",\r\n            \"minimumPrecision\": null,\r\n            \"includeTypelessEntities\": null,\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews/pages/*\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"languageCode\",\r\n                    \"source\": \"/document/language\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"locations\",\r\n                    \"targetName\": \"locations\"\r\n                },\r\n                {\r\n                    \"name\": \"entities\",\r\n                    \"targetName\": \"entities\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.SentimentSkill\",\r\n            \"name\": \"#3\",\r\n            \"description\": null,\r\n            \"context\": \"/document/Reviews/pages/*\",\r\n            \"defaultLanguageCode\": \"en\",\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews/pages/*\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"languageCode\",\r\n                    \"source\": \"/document/language\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"score\",\r\n                    \"targetName\": \"sentiment\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.LanguageDetectionSkill\",\r\n            \"description\": null,\r\n            \"context\": \"/document\",\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"languageCode\",\r\n                    \"targetName\": \"language\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.CustomEntityLookupSkill\",\r\n            \"name\": \"customentity\",\r\n            \"description\": null,\r\n            \"context\": \"/document/Reviews/pages/*\",\r\n            \"defaultLanguageCode\": \"en\",\r\n            \"entitiesDefinitionUri\": null,\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews/pages/*\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"entities\",\r\n                    \"targetName\": \"customentity\"\r\n                }\r\n            ],\r\n            \"inlineEntitiesDefinition\": [\r\n                {\r\n                    \"name\": \"intermittent\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 1,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": [\r\n                        {\r\n                            \"text\": \"intermittently\",\r\n                            \"caseSensitive\": false,\r\n                            \"accentSensitive\": null,\r\n                            \"fuzzyEditDistance\": null\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"name\": \"chuck\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 0,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": []\r\n                },\r\n                {\r\n                    \"name\": \"trigger interference\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 1,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": []\r\n                },\r\n                {\r\n                    \"name\": \"dead\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 0,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": []\r\n                },\r\n                {\r\n                    \"name\": \"low power\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 0,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": []\r\n                },\r\n                {\r\n                    \"name\": \"too hot\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 0,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": []\r\n                },\r\n                {\r\n                    \"name\": \"unrelated\",\r\n                    \"description\": null,\r\n                    \"type\": null,\r\n                    \"subtype\": null,\r\n                    \"id\": null,\r\n                    \"caseSensitive\": null,\r\n                    \"accentSensitive\": null,\r\n                    \"fuzzyEditDistance\": 0,\r\n                    \"defaultCaseSensitive\": null,\r\n                    \"defaultAccentSensitive\": null,\r\n                    \"defaultFuzzyEditDistance\": null,\r\n                    \"aliases\": []\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.TranslationSkill\",\r\n            \"name\": \"#5\",\r\n            \"description\": null,\r\n            \"context\": \"/document/Reviews/pages/*\",\r\n            \"defaultFromLanguageCode\": null,\r\n            \"defaultToLanguageCode\": \"en\",\r\n            \"suggestedFrom\": \"en\",\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews/pages/*\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"translatedText\",\r\n                    \"targetName\": \"translated_text\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Text.KeyPhraseExtractionSkill\",\r\n            \"name\": \"#6\",\r\n            \"description\": null,\r\n            \"context\": \"/document/Reviews/pages/*\",\r\n            \"defaultLanguageCode\": \"en\",\r\n            \"maxKeyPhraseCount\": null,\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"text\",\r\n                    \"source\": \"/document/Reviews/pages/*\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"languageCode\",\r\n                    \"source\": \"/document/language\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"keyPhrases\",\r\n                    \"targetName\": \"keyphrases\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"@odata.type\": \"#Microsoft.Skills.Util.ShaperSkill\",\r\n            \"name\": \"#7\",\r\n            \"description\": null,\r\n            \"context\": \"/document\",\r\n            \"inputs\": [\r\n                {\r\n                    \"name\": \"CREATEDDATE\",\r\n                    \"source\": \"/document/CREATEDDATE\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"ItemSearchName\",\r\n                    \"source\": \"/document/ItemSearchName\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"ProductType\",\r\n                    \"source\": \"/document/ProductType\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"Reviews\",\r\n                    \"source\": \"/document/Reviews\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"Rating\",\r\n                    \"source\": \"/document/Rating\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"AzureSearch_DocumentKey\",\r\n                    \"source\": \"/document/AzureSearch_DocumentKey\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_content_type\",\r\n                    \"source\": \"/document/metadata_storage_content_type\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_size\",\r\n                    \"source\": \"/document/metadata_storage_size\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_last_modified\",\r\n                    \"source\": \"/document/metadata_storage_last_modified\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_content_md5\",\r\n                    \"source\": \"/document/metadata_storage_content_md5\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_name\",\r\n                    \"source\": \"/document/metadata_storage_name\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_path\",\r\n                    \"source\": \"/document/metadata_storage_path\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"metadata_storage_file_extension\",\r\n                    \"source\": \"/document/metadata_storage_file_extension\",\r\n                    \"sourceContext\": null,\r\n                    \"inputs\": []\r\n                },\r\n                {\r\n                    \"name\": \"pages\",\r\n                    \"source\": null,\r\n                    \"sourceContext\": \"/document/Reviews/pages/*\",\r\n                    \"inputs\": [\r\n                        {\r\n                            \"name\": \"sentimentScore\",\r\n                            \"source\": \"/document/Reviews/pages/*/sentiment\",\r\n                            \"sourceContext\": null,\r\n                            \"inputs\": []\r\n                        },\r\n                        {\r\n                            \"name\": \"customentity\",\r\n                            \"source\": \"/document/Reviews/pages/*/customentity\",\r\n                            \"sourceContext\": null,\r\n                            \"inputs\": []\r\n                        },\r\n                        {\r\n                            \"name\": \"languageCode\",\r\n                            \"source\": \"/document/language\",\r\n                            \"sourceContext\": null,\r\n                            \"inputs\": []\r\n                        },\r\n                        {\r\n                            \"name\": \"translatedText\",\r\n                            \"source\": \"/document/Reviews/pages/*/translated_text\",\r\n                            \"sourceContext\": null,\r\n                            \"inputs\": []\r\n                        },\r\n                        {\r\n                            \"name\": \"keyPhrases\",\r\n                            \"source\": \"/document/Reviews/pages/*/keyphrases/*\",\r\n                            \"sourceContext\": null,\r\n                            \"inputs\": []\r\n                        },\r\n                        {\r\n                            \"name\": \"Entities\",\r\n                            \"source\": null,\r\n                            \"sourceContext\": \"/document/Reviews/pages/*/entities/*\",\r\n                            \"inputs\": [\r\n                                {\r\n                                    \"name\": \"Entity\",\r\n                                    \"source\": \"/document/Reviews/pages/*/entities/*/name\",\r\n                                    \"sourceContext\": null,\r\n                                    \"inputs\": []\r\n                                },\r\n                                {\r\n                                    \"name\": \"EntityType\",\r\n                                    \"source\": \"/document/Reviews/pages/*/entities/*/type\",\r\n                                    \"sourceContext\": null,\r\n                                    \"inputs\": []\r\n                                },\r\n                                {\r\n                                    \"name\": \"EntitySubType\",\r\n                                    \"source\": \"/document/Reviews/pages/*/entities/*/subType\",\r\n                                    \"sourceContext\": null,\r\n                                    \"inputs\": []\r\n                                },\r\n                                {\r\n                                    \"name\": \"Url\",\r\n                                    \"source\": \"/document/Reviews/pages/*/entities/*/wikipediaUrl\",\r\n                                    \"sourceContext\": null,\r\n                                    \"inputs\": []\r\n                                }\r\n                            ]\r\n                        },\r\n                        {\r\n                            \"name\": \"Page\",\r\n                            \"source\": \"/document/Reviews/pages/*\",\r\n                            \"sourceContext\": null,\r\n                            \"inputs\": []\r\n                        }\r\n                    ]\r\n                }\r\n            ],\r\n            \"outputs\": [\r\n                {\r\n                    \"name\": \"output\",\r\n                    \"targetName\": \"tableprojection\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"cognitiveServices\": {\r\n        \"@odata.type\": \"#Microsoft.Azure.Search.CognitiveServicesByKey\",\r\n        \"key\": \"{{your-cognitive-services-key}}\"\r\n    },\r\n    \"knowledgeStore\": {\r\n        \"storageConnectionString\": \"{{your-storage-container-connection-string}}\",\r\n        \"projections\": [\r\n            {\r\n                \"tables\": [\r\n                    {\r\n                        \"tableName\": \"cemetcossDocument\",\r\n                        \"referenceKeyName\": null,\r\n                        \"generatedKeyName\": \"Documentid\",\r\n                        \"source\": \"/document/tableprojection\",\r\n                        \"sourceContext\": null,\r\n                        \"inputs\": []\r\n                    },\r\n                    {\r\n                        \"tableName\": \"cemetcossPages\",\r\n                        \"referenceKeyName\": null,\r\n                        \"generatedKeyName\": \"Pagesid\",\r\n                        \"source\": \"/document/tableprojection/pages/*\",\r\n                        \"sourceContext\": null,\r\n                        \"inputs\": []\r\n                    },\r\n                    {\r\n                        \"tableName\": \"cemetcossKeyPhrases\",\r\n                        \"referenceKeyName\": null,\r\n                        \"generatedKeyName\": \"KeyPhrasesid\",\r\n                        \"source\": null,\r\n                        \"sourceContext\": \"/document/tableprojection/pages/*/keyPhrases/*\",\r\n                        \"inputs\": [\r\n                            {\r\n                                \"name\": \"keyphrases\",\r\n                                \"source\": \"/document/tableprojection/pages/*/keyPhrases/*\",\r\n                                \"sourceContext\": null,\r\n                                \"inputs\": []\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"tableName\": \"{{your-skillset-name}}customentity\",\r\n                        \"referenceKeyName\": null,\r\n                        \"generatedKeyName\": \"customentityid\",\r\n                        \"source\": null,\r\n                        \"sourceContext\": \"/document/tableprojection/pages/*/customentity/*\",\r\n                        \"inputs\": [\r\n                            {\r\n                                \"name\": \"customentity\",\r\n                                \"source\": \"/document/tableprojection/pages/*/customentity/*\",\r\n                                \"sourceContext\": null,\r\n                                \"inputs\": []\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"tableName\": \"cemetcossEntities\",\r\n                        \"referenceKeyName\": null,\r\n                        \"generatedKeyName\": \"Entitiesid\",\r\n                        \"source\": \"/document/tableprojection/pages/*/Entities/*\",\r\n                        \"sourceContext\": null,\r\n                        \"inputs\": []\r\n                    }\r\n                ],\r\n                \"objects\": [],\r\n                \"files\": [\r\n                    {\r\n                        \"storageContainer\": \"cemetcoss-image-projection\",\r\n                        \"referenceKeyName\": null,\r\n                        \"generatedKeyName\": \"imagepath\",\r\n                        \"source\": \"/document/tableprojection/Images/*/imgdata\",\r\n                        \"sourceContext\": null,\r\n                        \"inputs\": []\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"parameters\": {\r\n            \"synthesizeGeneratedKeyName\": true\r\n        }\r\n    },\r\n    \"encryptionKey\": null\r\n}"
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version=2019-05-06-Preview",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"{{skillset-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06-Preview"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Indexer - GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"{{indexer-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Indexer - PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"@odata.context\": \"https://{{your-search-service-name}}.search.windows.net/$metadata#indexers/$entity\",\r\n    \"@odata.etag\": \"\\\"0x8D82DDAFF6464C6\\\"\",\r\n    \"name\": \"{{your-indexer-name}}\",\r\n    \"description\": \"\",\r\n    \"dataSourceName\": \"cemetcods\",\r\n    \"skillsetName\": \"cemetcoss\",\r\n    \"targetIndexName\": \"cemetcoin\",\r\n    \"disabled\": null,\r\n    \"schedule\": null,\r\n    \"parameters\": {\r\n        \"batchSize\": null,\r\n        \"maxFailedItems\": 0,\r\n        \"maxFailedItemsPerBatch\": 0,\r\n        \"base64EncodeKeys\": null,\r\n        \"configuration\": {\r\n            \"dataToExtract\": \"contentAndMetadata\",\r\n            \"parsingMode\": \"delimitedText\",\r\n            \"firstLineContainsHeaders\": true,\r\n            \"delimitedTextDelimiter\": \",\",\r\n            \"delimitedTextHeaders\": \"\"\r\n        }\r\n    },\r\n    \"fieldMappings\": [\r\n        {\r\n            \"sourceFieldName\": \"AzureSearch_DocumentKey\",\r\n            \"targetFieldName\": \"AzureSearch_DocumentKey\",\r\n            \"mappingFunction\": {\r\n                \"name\": \"base64Encode\",\r\n                \"parameters\": null\r\n            }\r\n        }\r\n    ],\r\n    \"outputFieldMappings\": [\r\n        {\r\n            \"sourceFieldName\": \"/document/Reviews/pages/*/locations/*\",\r\n            \"targetFieldName\": \"locations\",\r\n            \"mappingFunction\": null\r\n        },\r\n        {\r\n            \"sourceFieldName\": \"/document/Reviews/pages/*/sentiment\",\r\n            \"targetFieldName\": \"sentiment\",\r\n            \"mappingFunction\": null\r\n        },\r\n        {\r\n            \"sourceFieldName\": \"/document/language\",\r\n            \"targetFieldName\": \"language\",\r\n            \"mappingFunction\": null\r\n        },\r\n        {\r\n            \"sourceFieldName\": \"/document/Reviews/pages/*/customentity/*/name\",\r\n            \"targetFieldName\": \"customentity\",\r\n            \"mappingFunction\": null\r\n        },\r\n        {\r\n            \"sourceFieldName\": \"/document/Reviews/pages/*/translated_text\",\r\n            \"targetFieldName\": \"translated_text\",\r\n            \"mappingFunction\": null\r\n        },\r\n        {\r\n            \"sourceFieldName\": \"/document/Reviews/pages/*/keyphrases/*\",\r\n            \"targetFieldName\": \"keyphrases\",\r\n            \"mappingFunction\": null\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{your-search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{your-search-service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"{{indexer-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
